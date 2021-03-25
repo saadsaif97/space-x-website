@@ -1,0 +1,38 @@
+.launchDetails {
+  padding: 40px 20px;
+}
+
+.launchDetails h1 {
+  margin: 20px 0;
+}
+
+.launchDetails h2 {
+  margin: 10px 0;
+}
+
+.launchDetails p {
+  margin-bottom: 20px;
+}
+
+.launchImages img {
+  width: 100%;
+  margin: 20px 0;
+}
+
+hr {
+  border: 1px solid #e9e9e9;
+}
+
+.status {
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: 20px;
+  font-weight: bolder;
+}
+
+.success {
+  background-color: green;
+}
+.failure {
+  background-color: orangered;
+}
