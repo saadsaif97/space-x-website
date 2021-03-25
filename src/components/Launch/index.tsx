@@ -3,11 +3,14 @@ import { useLaunchesQuery } from '../../generated/graphql'
 import Launch from './Launch'
 
 type LaunchContainerProps = {
-  setId: Function
+  idState: {
+    id: string
+    setId: Function
+  }
   open: boolean
 }
 
-const LaunchContainer: React.FC<LaunchContainerProps> = ({ setId, open }) => {
+const LaunchContainer: React.FC<LaunchContainerProps> = ({ idState, open }) => {
   const { data, loading, error } = useLaunchesQuery()
 
   if (loading) {
@@ -18,7 +21,7 @@ const LaunchContainer: React.FC<LaunchContainerProps> = ({ setId, open }) => {
     return <h1 style={{ padding: '40px 20px' }}>There was an error</h1>
   }
 
-  return <Launch data={data} setId={setId} open={open} />
+  return <Launch data={data} idState={idState} open={open} />
 }
 
 export default LaunchContainer

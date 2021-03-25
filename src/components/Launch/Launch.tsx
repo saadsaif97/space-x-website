@@ -4,7 +4,10 @@ import './styles.css'
 
 type LaunchProps = {
   data: LaunchesQuery
-  setId: Function
+  idState: {
+    id: string
+    setId: Function
+  }
   open: boolean
 }
 
@@ -15,7 +18,7 @@ const closeStyle = {
   display: 'none',
 }
 
-const Launch: React.FC<LaunchProps> = ({ data, setId, open }) => {
+const Launch: React.FC<LaunchProps> = ({ data, idState, open }) => {
   return (
     <div
       className='launches'
@@ -28,7 +31,12 @@ const Launch: React.FC<LaunchProps> = ({ data, setId, open }) => {
             <li
               className='launchesItem'
               key={i}
-              onClick={() => setId(`${i + 1}`)}
+              onClick={() => idState.setId(`${i + 1}`)}
+              style={
+                parseInt(idState.id) == i + 1
+                  ? { ...{ backgroundColor: 'gray' } }
+                  : {}
+              }
             >
               {launch?.mission_name} - {launch?.launch_year} (
               {launch?.launch_success ? 'success' : 'failure'})

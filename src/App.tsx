@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className='App' style={open ? { ...openStyle } : { ...closeStyle }}>
-      <LaunchContainer setId={setId} open={open} />
+      <LaunchContainer idState={{ id, setId }} open={open} />
       <LaunchInfoContainer
         idState={{ id, setId }}
         openState={{ open, setOpen }}
