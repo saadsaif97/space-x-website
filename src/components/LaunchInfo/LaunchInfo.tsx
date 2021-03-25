@@ -26,6 +26,7 @@ const LaunchInfo: React.FC<LaunchInfoProps> = ({
 
   return (
     <div className='launchDetails'>
+      {/* toogle manu icon */}
       <span
         className='toggleMenu'
         onClick={() => openState.setOpen(!openState.open)}
@@ -41,6 +42,7 @@ const LaunchInfo: React.FC<LaunchInfoProps> = ({
         >
           {data.launch.launch_success ? 'success' : 'failure'}
         </span>
+        {/* next and previous buttons */}
         <div className='navigation'>
           <button
             style={{ marginRight: '20px' }}
@@ -66,7 +68,8 @@ const LaunchInfo: React.FC<LaunchInfoProps> = ({
         </div>
       </div>
       <h1>
-        {data.launch.mission_name} - {data.launch.rocket?.rocket_name}
+        {data.launch.mission_name} - {data.launch.rocket?.rocket_name} -{' '}
+        {data.launch.launch_year}
       </h1>
       <p>Launhed from: {data.launch.launch_site?.site_name}</p>
       <p>{data.launch.details}</p>
