@@ -4,13 +4,23 @@ import React from 'react'
 import LaunchInfo from './LaunchInfo'
 
 type LaunchInfoContainerProps = {
-  id: string
+  idState: {
+    id: string
+    setId: Function
+  }
+  openState: {
+    open: boolean
+    setOpen: Function
+  }
 }
 
-const LaunchInfoContainer: React.FC<LaunchInfoContainerProps> = ({ id }) => {
+const LaunchInfoContainer: React.FC<LaunchInfoContainerProps> = ({
+  idState,
+  openState,
+}) => {
   const { data, loading, error } = useLaunchInfoQuery({
     variables: {
-      id,
+      id: idState.id,
     },
   })
 
@@ -26,7 +36,7 @@ const LaunchInfoContainer: React.FC<LaunchInfoContainerProps> = ({ id }) => {
     return <h1>Please select the launch to see the results</h1>
   }
 
-  return <LaunchInfo data={data} />
+  return <LaunchInfo data={data} openState={openState} idState={idState} />
 }
 
 export default LaunchInfoContainer

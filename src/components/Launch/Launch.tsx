@@ -5,11 +5,22 @@ import './styles.css'
 type LaunchProps = {
   data: LaunchesQuery
   setId: Function
+  open: boolean
 }
 
-const Launch: React.FC<LaunchProps> = ({ data, setId }) => {
+const openStyle = {
+  display: 'block',
+}
+const closeStyle = {
+  display: 'none',
+}
+
+const Launch: React.FC<LaunchProps> = ({ data, setId, open }) => {
   return (
-    <div className='launches'>
+    <div
+      className='launches'
+      style={open ? { ...openStyle } : { ...closeStyle }}
+    >
       <h3>All Space X launches</h3>
       <ol className='launchesOl'>
         {!!data.launches &&

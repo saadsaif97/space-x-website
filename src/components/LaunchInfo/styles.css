@@ -1,5 +1,24 @@
 .launchDetails {
   padding: 40px 20px;
+  position: relative;
+  min-height: 400px;
+}
+
+.toggleMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  background-color: #e9e9e97c;
+  cursor: pointer;
+}
+
+.toggleMenu:hover {
+  background-color: #fff;
+  color: black;
 }
 
 .launchDetails h1 {
@@ -12,6 +31,39 @@
 
 .launchDetails p {
   margin-bottom: 20px;
+}
+
+.launchStatus {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.launchStatus .navigation {
+  display: inline;
+}
+.launchStatus .navigation button {
+  padding: 5px;
+  background-color: aquamarine;
+  color: black;
+  font-weight: bolder;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.launchStatus .navigation button:hover {
+  background-color: rgb(10, 85, 60);
+  color: #e9e9e9;
+}
+.launchStatus .navigation button:active {
+  background-color: rgb(30, 112, 85);
+}
+
+.launchStatus .navigation button:disabled {
+  background-color: gray;
+  color: #e9e9e9;
+  cursor: not-allowed;
 }
 
 .launchImages img {
@@ -28,6 +80,7 @@ hr {
   border-radius: 10px;
   margin-left: 20px;
   font-weight: bolder;
+  margin-right: auto;
 }
 
 .success {

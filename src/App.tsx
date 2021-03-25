@@ -5,11 +5,22 @@ import LaunchInfoContainer from './components/LaunchInfo'
 
 function App() {
   const [id, setId] = useState('1')
+  const [open, setOpen] = useState(true)
+
+  const openStyle = {
+    gridTemplateColumns: '300px 1fr',
+  }
+  const closeStyle = {
+    gridTemplateColumns: '1fr',
+  }
 
   return (
-    <div className='App'>
-      <LaunchContainer setId={setId} />
-      <LaunchInfoContainer id={id} />
+    <div className='App' style={open ? { ...openStyle } : { ...closeStyle }}>
+      <LaunchContainer setId={setId} open={open} />
+      <LaunchInfoContainer
+        idState={{ id, setId }}
+        openState={{ open, setOpen }}
+      />
     </div>
   )
 }

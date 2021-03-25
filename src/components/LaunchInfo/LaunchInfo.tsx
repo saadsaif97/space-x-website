@@ -5,16 +5,34 @@ import './styles.css'
 
 type LaunchInfoProps = {
   data: LaunchInfoQuery
+  openState: {
+    open: boolean
+    setOpen: Function
+  }
+  idState: {
+    id: string
+    setId: Function
+  }
 }
 
-const LaunchInfo: React.FC<LaunchInfoProps> = ({ data }) => {
+const LaunchInfo: React.FC<LaunchInfoProps> = ({
+  data,
+  openState,
+  idState,
+}) => {
   if (!data.launch) {
     return <h1>Data not available</h1>
   }
 
   return (
     <div className='launchDetails'>
-      <div className='launchDetailsStatus'>
+      <span
+        className='toggleMenu'
+        onClick={() => openState.setOpen(!openState.open)}
+      >
+        {openState.open ? 'X' : '→'}
+      </span>
+      <div className='launchStatus'>
         <span>Flight {data.launch.flight_number}</span>
         <span
           className={
@@ -23,6 +41,29 @@ const LaunchInfo: React.FC<LaunchInfoProps> = ({ data }) => {
         >
           {data.launch.launch_success ? 'success' : 'failure'}
         </span>
+        <div className='navigation'>
+          <button
+            style={{ marginRight: '20px' }}
+            disabled={idState.id === '1'}
+            onClick={() =>
+              idState.setId((prev: string) =>
+                JSON.stringify(parseInt(prev) - 1)
+              )
+            }
+          >
+            ←Previous{' '}
+          </button>
+          <button
+            disabled={idState.id === '110'}
+            onClick={() =>
+              idState.setId((prev: string) =>
+                JSON.stringify(parseInt(prev) + 1)
+              )
+            }
+          >
+            Next→{' '}
+          </button>
+        </div>
       </div>
       <h1>
         {data.launch.mission_name} - {data.launch.rocket?.rocket_name}
