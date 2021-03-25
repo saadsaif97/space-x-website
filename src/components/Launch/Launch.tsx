@@ -33,7 +33,7 @@ const Launch: React.FC<LaunchProps> = ({ data, idState, open }) => {
               key={i}
               onClick={() => idState.setId(`${i + 1}`)}
               style={
-                parseInt(idState.id) == i + 1
+                parseInt(idState.id) === i + 1
                   ? { ...{ backgroundColor: 'gray' } }
                   : {}
               }

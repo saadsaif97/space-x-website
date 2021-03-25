@@ -1,7 +1,23 @@
 .launchDetails {
   padding: 40px 20px;
   position: relative;
-  min-height: 400px;
+  min-width: 400px;
+  overflow: auto;
+  max-height: 100vh;
+}
+
+.launchDetails::-webkit-scrollbar {
+  width: 1em;
+}
+
+.launchDetails::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.launchDetails::-webkit-scrollbar-thumb {
+  background-color: #383535;
+  outline: none;
+  border-radius: 10px;
 }
 
 .toggleMenu {
